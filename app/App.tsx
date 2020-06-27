@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import React from 'react';
 import {
   SafeAreaView,
@@ -6,8 +7,8 @@ import {
   View,
   Text,
   StatusBar,
+  Button,
 } from 'react-native';
-
 import {
   Header,
   LearnMoreLinks,
@@ -15,13 +16,15 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import AppNavigator from './AppNavigator';
 
 declare const global: {HermesInternal: null | {}};
 
 const App = () => {
   return (
     <>
-      <StatusBar barStyle="dark-content" />
+      <AppNavigator />
+      {/* <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
@@ -61,7 +64,7 @@ const App = () => {
             <LearnMoreLinks />
           </View>
         </ScrollView>
-      </SafeAreaView>
+      </SafeAreaView> */}
     </>
   );
 };
