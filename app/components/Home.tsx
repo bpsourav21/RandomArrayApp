@@ -2,11 +2,13 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {View, Text, Button} from 'react-native';
 import {increment} from '../actions/contentAction';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 class Home extends Component {
   render() {
     return (
-      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <SafeAreaView
+        style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <Text>Home Screen</Text>
         <Button
           title="Go to Details"
@@ -19,7 +21,7 @@ class Home extends Component {
         />
 
         <Text>date- {this.props.Home}</Text>
-      </View>
+      </SafeAreaView>
     );
   }
 }
