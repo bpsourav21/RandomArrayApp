@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {connect, Dispatch} from 'react-redux';
+import {connect} from 'react-redux';
 import {View, Text, Button} from 'react-native';
 import {increment} from '../actions/contentAction';
 

@@ -1,5 +1,5 @@
 // IMPORT REDUX COMPONENTS
-import {compose, createStore, applyMiddleware} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import thunkMiddleware from 'redux-thunk';
 // import {persistStore, autoRehydrate} from 'redux-persist';
 import logger from 'redux-logger';
