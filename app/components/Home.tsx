@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
+import {connect, Dispatch} from 'react-redux';
 import {View, Text, Button} from 'react-native';
+import {increment} from '../actions/contentAction';
 
 class Home extends Component {
   render() {
@@ -10,9 +12,22 @@ class Home extends Component {
           title="Go to Details"
           onPress={() => this.props.navigation.navigate('Profile')}
         />
+
+        <Button
+          title="Count"
+          onPress={() => this.props.dispatch(increment())}
+        />
+
+        <Text>date- {this.props.Home}</Text>
       </View>
     );
   }
 }
 
-export default Home;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    Home: state.Content.Date,
+  };
+};
+
+export default connect(mapStateToProps)(Home);
