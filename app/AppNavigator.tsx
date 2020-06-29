@@ -6,6 +6,8 @@ import Home from './components/Home';
 import Profile from './components/Profile';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import DrawerContent from '../app/components/Drawer';
+import styles from '../shared/globalStyles';
+
 // const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
@@ -16,7 +18,7 @@ const AppNavigator = () => {
         <Drawer.Navigator
           initialRouteName="Home"
           drawerContentOptions={{
-            activeTintColor: '#e91e63',
+            activeTintColor: '#0d0d0d',
             itemStyle: {marginVertical: 0},
           }}
           drawerContent={(props) => <DrawerContent {...props} />}>

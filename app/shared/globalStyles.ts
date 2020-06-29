@@ -1,16 +1,23 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Platform} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 const styles = StyleSheet.create({
   scrollView: {
     backgroundColor: Colors.lighter,
   },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
   body: {
     backgroundColor: Colors.white,
+  },
+  headerContainer: {
+    backgroundColor: Colors.dark,
+    height: Platform.OS === 'android' ? 56 : 44,
+    paddingTop: 0,
+  },
+  drawerContainer: {
+    backgroundColor: Colors.dark,
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   sectionContainer: {
     marginTop: 32,

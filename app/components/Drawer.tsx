@@ -5,19 +5,14 @@ import {
   DrawerContentScrollView,
   DrawerItem,
 } from '@react-navigation/drawer';
+import styles from '../shared/globalStyles';
 
 class DrawerContent extends Component {
   render() {
     const props = this.props;
     return (
       <View style={{flex: 1}}>
-        <View
-          style={{
-            backgroundColor: '#f50057',
-            flex: 1,
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
+        <View style={styles.drawerContainer}>
           <Text style={{color: 'white', fontSize: 30}}>Header</Text>
         </View>
         <View style={{flex: 3}}>
