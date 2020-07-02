@@ -4,7 +4,7 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 
 class Profile extends Component {
   render() {
-    console.log(this.props);
+    console.log('profile', this.props);
     return (
       <SafeAreaView
         style={{

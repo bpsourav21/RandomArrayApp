@@ -4,8 +4,8 @@ export const GET_TYPE_REQUEST = 'GET_TYPE_REQUEST';
 export const GET_TYPE_FAILURE = 'GET_TYPE_FAILURE';
 export const GET_TYPE_SUCCESS = 'GET_TYPE_SUCCESS';
 
-export function getOrderDetails(orderId) {
-  return (dispatch) => {
+export function getOrderDetails(orderId: number) {
+  return (dispatch: any) => {
     dispatch({
       type: GET_TYPE_REQUEST,
     });
@@ -23,8 +23,8 @@ export function getOrderDetails(orderId) {
 }
 
 export const INCREMENT = 'INCREMENT';
-export function increment(orderId) {
-  return (dispatch) => {
+export function increment() {
+  return (dispatch: any) => {
     dispatch({
       type: INCREMENT,
       payload: {value: new Date().toString()},

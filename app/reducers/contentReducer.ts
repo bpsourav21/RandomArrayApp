@@ -8,7 +8,7 @@ interface CustomState {
 export const initialState: CustomState = {
   Date: '',
 };
-const reducer = (avoState: CustomState = initialState, action) => {
+const reducer = (avoState: CustomState = initialState, action: any) => {
   switch (action.type) {
     case actions.GET_TYPE_REQUEST:
       return _.assign({}, avoState, {});

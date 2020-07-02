@@ -6,10 +6,10 @@ import Home from './components/Home';
 import Profile from './components/Profile';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import DrawerContent from '../app/components/Drawer';
-import styles from '../shared/globalStyles';
+import {ParamList} from '../app//interfaces/RootInterface';
 
 // const Stack = createStackNavigator();
-const Drawer = createDrawerNavigator();
+const Drawer = createDrawerNavigator<ParamList>();
 
 const AppNavigator = () => {
   return (

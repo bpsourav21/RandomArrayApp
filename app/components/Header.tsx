@@ -1,8 +1,14 @@
 import React, {Component} from 'react';
 import {Header} from 'react-native-elements';
-import styles from '../shared/globalStyles';
+import {styles} from '../shared/globalStyles';
+import {GlobalProps} from '../interfaces/RootInterface';
 
-class HeaderComponent extends Component {
+interface LocalProps extends GlobalProps {}
+
+class HeaderComponent extends Component<LocalProps, any> {
+  constructor(props: LocalProps) {
+    super(props);
+  }
   private onPressMenuToggle() {
     this.props.navigation.toggleDrawer();
   }

@@ -1,14 +1,23 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {View, Text, Button} from 'react-native';
+import {Text, Button} from 'react-native';
 import {increment} from '../actions/contentAction';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {Icon} from 'react-native-elements';
 import Header from './Header';
-import styles from '../shared/globalStyles';
+// import styles from '../shared/globalStyles';
+import {GlobalState, GlobalProps} from '../interfaces/RootInterface';
 
-class Home extends Component {
+interface LocalProps extends GlobalProps {
+  date: string;
+}
+
+class Home extends Component<LocalProps, any> {
+  constructor(props: LocalProps) {
+    super(props);
+  }
   render() {
+    console.log('home', this.props);
     return (
       <SafeAreaView>
         <Header {...this.props} />
@@ -32,15 +41,15 @@ class Home extends Component {
           onPress={() => this.props.dispatch(increment())}
         />
 
-        <Text>date- {this.props.Home}</Text>
+        <Text>date- {this.props.date}</Text>
       </SafeAreaView>
     );
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state: GlobalState) => {
   return {
-    Home: state.Content.Date,
+    date: state.Content.Date,
   };
 };
 
