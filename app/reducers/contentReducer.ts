@@ -1,14 +1,14 @@
 import _ from 'underscore';
 import * as actions from '../actions/contentAction';
+import {ContentState} from '../interfaces/ContentState';
 
-interface CustomState {
-  Date: string;
-}
-
-export const initialState: CustomState = {
+const initialState: ContentState = {
   Date: '',
 };
-const reducer = (avoState: CustomState = initialState, action: any) => {
+const reducer = (
+  avoState: ContentState = initialState,
+  action: any,
+): ContentState => {
   switch (action.type) {
     case actions.GET_TYPE_REQUEST:
       return _.assign({}, avoState, {});

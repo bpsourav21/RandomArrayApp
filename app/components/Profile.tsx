@@ -1,22 +1,35 @@
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
+import {connect} from 'react-redux';
+import {Text, Button, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import Header from './Header';
+import {styles} from '../shared/globalStyles';
+import {GlobalState, GlobalProps} from '../interfaces/RootInterface';
 
-class Profile extends Component {
+interface LocalProps extends GlobalProps {}
+
+class Profile extends Component<LocalProps, any> {
+  constructor(props: LocalProps) {
+    super(props);
+  }
   render() {
-    console.log('profile', this.props);
     return (
-      <SafeAreaView
-        style={{
-          flex: 1,
-          justifyContent: 'space-between',
-          alignItems: 'center',
-        }}>
-        <Text>This is top text.</Text>
-        <Text>This is bottom text.</Text>
+      <SafeAreaView style={styles.flex1}>
+        <Header {...this.props} />
+        <View style={styles.containerCentered}>
+          <Text>profile screen</Text>
+          <Button
+            title="press me"
+            onPress={() => this.props.navigation.navigate('Home')}
+          />
+        </View>
       </SafeAreaView>
     );
   }
 }
 
-export default Profile;
+const mapStateToProps = (state: GlobalState) => {
+  return {};
+};
+
+export default connect(mapStateToProps)(Profile);

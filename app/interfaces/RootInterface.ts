@@ -1,5 +1,7 @@
 import {DrawerNavigationProp} from '@react-navigation/drawer';
 import {RouteProp, ParamListBase} from '@react-navigation/native';
+import {AuthState} from './AuthState';
+import {ContentState} from './ContentState';
 
 export interface ParamList extends ParamListBase {
   Home: undefined;
@@ -13,5 +15,6 @@ export interface GlobalProps {
 }
 
 export interface GlobalState {
-  Content: any;
+  Auth: AuthState;
+  Content: ContentState;
 }

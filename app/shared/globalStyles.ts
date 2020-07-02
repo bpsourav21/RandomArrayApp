@@ -1,7 +1,17 @@
-import {StyleSheet, Platform, TextStyle} from 'react-native';
+import {StyleSheet, Platform} from 'react-native';
 import {Colors} from './Colors';
 
 export const styles = StyleSheet.create({
+  container: {
+    backgroundColor: Colors.white,
+    padding: 10,
+    flex: 1,
+  },
+  containerCentered: {
+    flex: 1,
+    justifyContent: 'center',
+    alignContent: 'center',
+  },
   scrollView: {
     backgroundColor: Colors.lighter,
   },
@@ -13,9 +23,18 @@ export const styles = StyleSheet.create({
     height: Platform.OS === 'android' ? 56 : 44,
     paddingTop: 0,
   },
-  drawerContainer: {
+  drawerContainerTop: {
     backgroundColor: Colors.dark,
-    flex: 1,
+    flex: 3,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  drawerContainerMiddle: {
+    flex: 7,
+  },
+  drawerContainerBottom: {
+    flex: 2,
+    backgroundColor: Colors.dark,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -80,6 +99,10 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     flex: 5,
   },
+  error: {color: 'red', fontSize: 12},
+  textCenter: {textAlign: 'center'},
+  textLeft: {textAlign: 'left'},
+  textRight: {textAlign: 'right'},
 });
 
 export const textStyle = (
