@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-// import {createStackNavigator} from '@react-navigation/stack';
+import {createStackNavigator} from '@react-navigation/stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import Home from './components/Home';
 import Profile from './components/Profile';
@@ -13,11 +13,14 @@ import {
 } from '../app/interfaces/RootInterface';
 import Login from './components/Login';
 import {connect} from 'react-redux';
+import OTPScreen from './components/OTPScreen';
 
-// const Stack = createStackNavigator();
+const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator<ParamList>();
 
-interface LocalProps extends GlobalProps {}
+interface LocalProps extends GlobalProps {
+  isAuthenticated: boolean;
+}
 
 class AppNavigator extends Component<LocalProps, any> {
   constructor(props: any) {
@@ -25,20 +28,50 @@ class AppNavigator extends Component<LocalProps, any> {
   }
 
   render() {
+    const drawerNavigationContent = (
+      <Drawer.Navigator
+        initialRouteName="Home"
+        drawerContentOptions={{
+          activeTintColor: '#0d0d0d',
+          itemStyle: {marginVertical: 0},
+        }}
+        drawerContent={(props) => <DrawerContent {...props} />}>
+        <Drawer.Screen name="Home" component={Home} />
+        <Drawer.Screen name="Profile" component={Profile} />
+      </Drawer.Navigator>
+    );
+    const stackNavigationContent = (
+      <Stack.Navigator
+        initialRouteName="Login"
+        screenOptions={{
+          headerShown: false,
+        }}>
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{
+            // When logging out, a pop animation feels intuitive
+            // You can remove this if you want the default 'push' animation
+            animationTypeForReplace: this.props.isAuthenticated
+              ? 'push'
+              : 'pop',
+          }}
+        />
+        <Stack.Screen
+          name="OTP"
+          component={OTPScreen}
+          options={{
+            animationTypeForReplace: 'push',
+          }}
+        />
+      </Stack.Navigator>
+    );
     return (
       <SafeAreaProvider>
         <NavigationContainer>
-          <Drawer.Navigator
-            initialRouteName="Home"
-            drawerContentOptions={{
-              activeTintColor: '#0d0d0d',
-              itemStyle: {marginVertical: 0},
-            }}
-            drawerContent={(props) => <DrawerContent {...props} />}>
-            <Drawer.Screen name="Home" component={Home} />
-            <Drawer.Screen name="Profile" component={Profile} />
-            <Drawer.Screen name="Login" component={Login} />
-          </Drawer.Navigator>
+          {this.props.isAuthenticated
+            ? drawerNavigationContent
+            : stackNavigationContent}
         </NavigationContainer>
       </SafeAreaProvider>
     );

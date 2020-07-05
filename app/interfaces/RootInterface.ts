@@ -6,6 +6,8 @@ import {ContentState} from './ContentState';
 export interface ParamList extends ParamListBase {
   Home: undefined;
   Profile: undefined;
+  Login: undefined;
+  OTP: undefined;
 }
 
 export interface GlobalProps {

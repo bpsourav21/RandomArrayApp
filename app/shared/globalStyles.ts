@@ -11,6 +11,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignContent: 'center',
+    padding: 10,
   },
   scrollView: {
     backgroundColor: Colors.lighter,

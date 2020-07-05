@@ -23,6 +23,7 @@ class DrawerContent extends Component<LocalProps, any> {
   private onButtonPressed() {
     if (this.props.isAuthenticated) {
       this.props.dispatch(logout());
+      this.props.navigation.closeDrawer();
     } else {
       this.props.dispatch(login());
     }

@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Text, Button, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import Header from './Header';
 import {styles} from '../shared/globalStyles';
 import {GlobalState, GlobalProps} from '../interfaces/RootInterface';
 import {Input} from 'react-native-elements';
-import {login} from '../actions/authAction';
+import {verticalSpacer} from '../shared/Helpers';
+// import {login} from '../actions/authAction';
 
 interface LocalProps extends GlobalProps {}
 
@@ -17,10 +17,8 @@ class Login extends Component<LocalProps, any> {
   render() {
     return (
       <SafeAreaView style={styles.flex1}>
-        <Header {...this.props} />
         <View style={styles.containerCentered}>
-          <Text>Login screen</Text>
-          <Input
+          {/* <Input
             placeholder="INPUT WITH ICON"
             leftIcon={{type: 'font-awesome', name: 'envelope'}}
             label="Enter email address"
@@ -37,9 +35,21 @@ class Login extends Component<LocalProps, any> {
             errorMessage="ENTER A VALID ERROR HERE"
             leftIconContainerStyle={{width: 30}}
             secureTextEntry={true}
-          />
+          /> */}
 
-          <Button title="Login" onPress={() => this.props.dispatch(login())} />
+          <Input
+            placeholder="+8801671820025"
+            leftIcon={{type: 'font-awesome', name: 'phone'}}
+            label="Enter Phone Number"
+            errorStyle={styles.error}
+            errorMessage="ENTER A VALID ERROR HERE"
+            leftIconContainerStyle={{width: 30}}
+          />
+          {verticalSpacer(20)}
+          <Button
+            title="Login"
+            onPress={() => this.props.navigation.navigate('OTP')}
+          />
         </View>
       </SafeAreaView>
     );
