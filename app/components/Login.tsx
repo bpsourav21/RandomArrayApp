@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Text, Button, View} from 'react-native';
+import {Button, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {styles} from '../shared/globalStyles';
 import {GlobalState, GlobalProps} from '../interfaces/RootInterface';

@@ -5,7 +5,7 @@ export const Colors = {
   dark: '#a9a9a9',
   dullBackground: '#f7f7f7',
   darkBackground: '#363636',
-  primary: '#fdd670',
+  primary: '#2296F3',
   lightPrimary: '#ffffa1',
   darkPrimary: '#c7a541',
   secondary: '#ff666b',
@@ -23,4 +23,5 @@ export const Colors = {
   listItemSplitter: '#ebebeb',
   positiveColor: '#009978',
   disabledColor: '#444444',
+  standard: '#DC2E45',
 };

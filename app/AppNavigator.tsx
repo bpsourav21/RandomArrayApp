@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import Home from './components/Home';
+import Home from './screens/Home';
 import Profile from './components/Profile';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import DrawerContent from '../app/components/Drawer';
@@ -14,6 +14,11 @@ import {
 import Login from './components/Login';
 import {connect} from 'react-redux';
 import OTPScreen from './components/OTPScreen';
+import {getStorageData} from './actions/authAction';
+import AsyncStorage from '@react-native-community/async-storage';
+import ShoppingCart from './screens/ShoppingCart';
+import ProductDetails from './screens/ProductDetails';
+import Checkout from './screens/Checkout';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator<ParamList>();
@@ -25,6 +30,9 @@ interface LocalProps extends GlobalProps {
 class AppNavigator extends Component<LocalProps, any> {
   constructor(props: any) {
     super(props);
+  }
+  componentDidMount() {
+    this.props.dispatch(getStorageData());
   }
 
   render() {
@@ -38,6 +46,9 @@ class AppNavigator extends Component<LocalProps, any> {
         drawerContent={(props) => <DrawerContent {...props} />}>
         <Drawer.Screen name="Home" component={Home} />
         <Drawer.Screen name="Profile" component={Profile} />
+        <Drawer.Screen name="ShoppingCart" component={ShoppingCart} />
+        <Drawer.Screen name="ProductDetails" component={ProductDetails} />
+        <Drawer.Screen name="Checkout" component={Checkout} />
       </Drawer.Navigator>
     );
     const stackNavigationContent = (

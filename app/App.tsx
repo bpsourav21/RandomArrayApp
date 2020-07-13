@@ -4,6 +4,7 @@ import {Provider} from 'react-redux';
 import {StatusBar, BackHandler} from 'react-native';
 import AppNavigator from './AppNavigator';
 import store from './store/store';
+import {Colors} from './shared/Colors';
 
 declare const global: {HermesInternal: null | {}};
 
@@ -34,7 +35,7 @@ class App extends Component<any, any> {
   render() {
     return (
       <Provider store={store}>
-        <StatusBar barStyle="light-content" />
+        <StatusBar barStyle="light-content" backgroundColor={Colors.primary} />
         <AppNavigator />
       </Provider>
     );

@@ -4,6 +4,7 @@ import {AuthState} from '../interfaces/AuthState';
 
 const initialState: AuthState = {
   isAuthenticated: false,
+  token: '',
 };
 const reducer = (
   avoState: AuthState = initialState,
@@ -18,6 +19,7 @@ const reducer = (
       return _.assign({}, avoState, {
         isAuthenticated: action.payload.isAuthenticated,
       });
+
     case actions.GET_LOGOUT_REQUEST:
       return _.assign({}, avoState, {});
     case actions.GET_LOGOUT_FAILURE:
@@ -25,6 +27,26 @@ const reducer = (
     case actions.GET_LOGOUT_SUCCESS:
       return _.assign({}, avoState, {
         isAuthenticated: action.payload.isAuthenticated,
+      });
+
+    case actions.GET_TOKEN_REQUEST:
+      return _.assign({}, avoState, {});
+    case actions.GET_TOKEN_FAILURE:
+      return _.assign({}, avoState, {});
+    case actions.GET_TOKEN_SUCCESS:
+      return _.assign({}, avoState, {
+        token: action.payload.value,
+      });
+
+    case actions.SET_TOKEN_REQUEST:
+      return _.assign({}, avoState, {});
+    case actions.SET_TOKEN_FAILURE:
+      return _.assign({}, avoState, {
+        token: action.payload.value,
+      });
+    case actions.SET_TOKEN_SUCCESS:
+      return _.assign({}, avoState, {
+        token: action.payload.value,
       });
 
     default:

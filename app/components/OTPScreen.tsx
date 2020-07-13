@@ -6,7 +6,7 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {styles} from '../shared/globalStyles';
 import {GlobalState, GlobalProps} from '../interfaces/RootInterface';
 import {Input} from 'react-native-elements';
-import {login} from '../actions/authAction';
+import {login, setStorageData} from '../actions/authAction';
 import {renderButton, verticalSpacer} from '../shared/Helpers';
 
 interface LocalProps extends GlobalProps {}
@@ -29,7 +29,9 @@ class OTPScreen extends Component<LocalProps, any> {
           <Button title="Resend" onPress={() => this.props.dispatch(login())} /> */}
           {renderButton('Login', () => this.props.dispatch(login()))}
           {verticalSpacer(10)}
-          {renderButton('Resend', () => this.props.dispatch(login()))}
+          {renderButton('Resend', () =>
+            this.props.dispatch(setStorageData('01671820025')),
+          )}
         </View>
       </SafeAreaView>
     );

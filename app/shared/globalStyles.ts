@@ -20,12 +20,12 @@ export const styles = StyleSheet.create({
     backgroundColor: Colors.white,
   },
   headerContainer: {
-    backgroundColor: Colors.dark,
+    backgroundColor: Colors.primary,
     height: Platform.OS === 'android' ? 56 : 44,
     paddingTop: 0,
   },
   drawerContainerTop: {
-    backgroundColor: Colors.dark,
+    backgroundColor: Colors.primary,
     flex: 3,
     alignItems: 'center',
     justifyContent: 'center',
@@ -35,7 +35,7 @@ export const styles = StyleSheet.create({
   },
   drawerContainerBottom: {
     flex: 2,
-    backgroundColor: Colors.dark,
+    backgroundColor: Colors.primary,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -53,6 +53,18 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '400',
     color: Colors.dark,
+  },
+  productContatiner: {
+    flex: 1,
+    flexDirection: 'row',
+    backgroundColor: Colors.dullBackground,
+    height: 80,
+  },
+  swipeableRemove: {
+    width: 60,
+    height: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   highlight: {
     fontWeight: '700',
@@ -80,6 +92,15 @@ export const styles = StyleSheet.create({
   flex5: {
     flex: 5,
   },
+  flex6: {
+    flex: 6,
+  },
+  flex7: {
+    flex: 7,
+  },
+  flex8: {
+    flex: 8,
+  },
   flexRow1: {
     flexDirection: 'row',
     flex: 1,
@@ -99,6 +120,18 @@ export const styles = StyleSheet.create({
   flexRow5: {
     flexDirection: 'row',
     flex: 5,
+  },
+  flexRow6: {
+    flexDirection: 'row',
+    flex: 6,
+  },
+  flexRow7: {
+    flexDirection: 'row',
+    flex: 7,
+  },
+  flexRow8: {
+    flexDirection: 'row',
+    flex: 8,
   },
   error: {color: 'red', fontSize: 12},
   textCenter: {textAlign: 'center'},
@@ -131,5 +164,17 @@ export const textStyle = (
     color: colorVal,
     fontSize: fontSizeVal,
     fontWeight: fontWeightVal,
+  };
+};
+
+export const itemWidth = (width: number) => {
+  return {
+    width: width,
+  };
+};
+
+export const itemHeight = (height: number) => {
+  return {
+    height: height,
   };
 };

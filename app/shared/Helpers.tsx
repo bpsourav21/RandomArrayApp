@@ -17,6 +17,7 @@ export const horizontalSpacer = (width: number) => <View style={{width}} />;
 export const renderButton = (
   title: string,
   onPress: () => void,
+  buttonColor: string = Colors.primary,
   containerPadding: number = 10,
   containerHeight: number = 40,
   type: buttonType = 'solid',
@@ -31,6 +32,7 @@ export const renderButton = (
   button(
     title,
     onPress,
+    buttonColor,
     type,
     {
       padding: containerPadding,
@@ -48,6 +50,7 @@ export const renderButton = (
 const button = (
   title: string,
   onPress: () => void,
+  buttonColor: string,
   type: buttonType,
   containerStyle: viewStyle,
   loading: boolean,
@@ -72,6 +75,7 @@ const button = (
       loading={loading}
       onPress={onPress}
       disabled={disabled}
+      buttonStyle={{backgroundColor: buttonColor}}
     />
   );
 };
