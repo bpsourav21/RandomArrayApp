@@ -5,7 +5,8 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {styles} from '../shared/globalStyles';
 import {GlobalState, GlobalProps} from '../interfaces/RootInterface';
 import {Input} from 'react-native-elements';
-import {verticalSpacer} from '../shared/Helpers';
+import {verticalSpacer, renderButton} from '../shared/Helpers';
+import {Colors} from '../shared/Colors';
 // import {login} from '../actions/authAction';
 
 interface LocalProps extends GlobalProps {}
@@ -46,10 +47,11 @@ class Login extends Component<LocalProps, any> {
             leftIconContainerStyle={{width: 30}}
           />
           {verticalSpacer(20)}
-          <Button
-            title="Login"
-            onPress={() => this.props.navigation.navigate('OTP')}
-          />
+          {renderButton(
+            'Login',
+            () => this.props.navigation.navigate('OTP'),
+            Colors.standard,
+          )}
         </View>
       </SafeAreaView>
     );

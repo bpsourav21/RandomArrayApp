@@ -71,11 +71,19 @@ const button = (
       type={type}
       iconRight={iconRight}
       title={title}
+      titleStyle={{
+        fontSize: 18,
+        color: type === 'outline' ? buttonColor : Colors.white,
+      }}
       raised={raised}
       loading={loading}
       onPress={onPress}
       disabled={disabled}
-      buttonStyle={{backgroundColor: buttonColor}}
+      buttonStyle={{
+        backgroundColor: type === 'solid' ? buttonColor : Colors.white,
+        borderColor: type === 'clear' ? 'transparent' : buttonColor,
+        borderWidth: type === 'clear' ? 0 : 2,
+      }}
     />
   );
 };

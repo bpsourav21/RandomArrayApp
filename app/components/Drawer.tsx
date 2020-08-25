@@ -11,6 +11,7 @@ import {Icon, Avatar} from 'react-native-elements';
 import {GlobalProps, GlobalState} from '../interfaces/RootInterface';
 import {connect} from 'react-redux';
 import {logout, login} from '../actions/authAction';
+import {Colors} from '../shared/Colors';
 
 interface LocalProps extends GlobalProps {
   isAuthenticated: boolean;
@@ -40,7 +41,7 @@ class DrawerContent extends Component<LocalProps, any> {
               uri: 'https://www.w3schools.com/w3images/avatar2.png',
             }}
           />
-          <Text style={textStyle('red', 20)}>Header</Text>
+          <Text style={textStyle(Colors.white, 20)}>Header</Text>
         </View>
         <View style={styles.drawerContainerMiddle}>
           <DrawerContentScrollView {...props}>
@@ -54,7 +55,7 @@ class DrawerContent extends Component<LocalProps, any> {
               raised
               name={this.props.isAuthenticated ? 'sign-out' : 'sign-in'}
               type="font-awesome"
-              color="#333"
+              color={Colors.standard}
               size={20}
             />
             <Text style={styles.textCenter}>

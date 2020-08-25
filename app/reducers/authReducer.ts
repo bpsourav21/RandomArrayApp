@@ -1,15 +1,12 @@
 import _ from 'underscore';
 import * as actions from '../actions/authAction';
-import {AuthState} from '../interfaces/AuthState';
+import {Auth} from '../interfaces/Auth';
 
-const initialState: AuthState = {
+const initialState: Auth = {
   isAuthenticated: false,
   token: '',
 };
-const reducer = (
-  avoState: AuthState = initialState,
-  action: any,
-): AuthState => {
+const reducer = (avoState: Auth = initialState, action: any): Auth => {
   switch (action.type) {
     case actions.GET_LOGIN_REQUEST:
       return _.assign({}, avoState, {});

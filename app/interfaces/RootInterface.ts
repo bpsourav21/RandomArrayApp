@@ -1,7 +1,9 @@
 import {DrawerNavigationProp} from '@react-navigation/drawer';
 import {RouteProp, ParamListBase} from '@react-navigation/native';
-import {AuthState} from './AuthState';
+import {Auth} from './Auth';
 import {ContentState} from './ContentState';
+import {Product} from './Product';
+import {Cart} from './ShppingCart';
 
 export interface ParamList extends ParamListBase {
   Home: undefined;
@@ -20,6 +22,8 @@ export interface GlobalProps {
 }
 
 export interface GlobalState {
-  Auth: AuthState;
+  Auth: Auth;
   Content: ContentState;
+  Product: Product;
+  Cart: Cart;
 }

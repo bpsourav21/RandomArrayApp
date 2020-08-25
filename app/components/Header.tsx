@@ -33,9 +33,9 @@ class HeaderComponent extends Component<LocalProps, any> {
             onPress={() => this.props.navigation.navigate('ShoppingCart')}
           />
           <Badge
-            status="error"
+            status="warning"
             value={5}
-            containerStyle={{position: 'absolute', top: -4, right: -4}}
+            containerStyle={{position: 'absolute', top: -5, right: -5}}
           />
         </View>
       </RectButton>

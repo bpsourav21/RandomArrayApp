@@ -24,4 +24,6 @@ export const Colors = {
   positiveColor: '#009978',
   disabledColor: '#444444',
   standard: '#DC2E45',
+  theme: '#de4357',
+  themeLite: '#db9ca4',
 };

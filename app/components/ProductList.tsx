@@ -3,11 +3,17 @@ import {connect} from 'react-redux';
 import {Text, View, ActivityIndicator, Animated} from 'react-native';
 import {styles, textStyle, itemWidth, itemHeight} from '../shared/globalStyles';
 import {GlobalState, GlobalProps} from '../interfaces/RootInterface';
-import {TouchableOpacity, FlatList} from 'react-native-gesture-handler';
+import {
+  TouchableOpacity,
+  FlatList,
+  RectButton,
+} from 'react-native-gesture-handler';
 import {Image, Icon} from 'react-native-elements';
-import {verticalSpacer} from '../shared/Helpers';
+import {verticalSpacer, horizontalSpacer} from '../shared/Helpers';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import {Colors} from '../shared/Colors';
+import {ProductDto} from '../interfaces/Product';
+import {addItemOnCart} from '../actions/cartAction';
 
 interface LocalProps extends GlobalProps {
   data: any;
@@ -18,12 +24,18 @@ class ProductList extends Component<LocalProps, any> {
   constructor(props: LocalProps) {
     super(props);
   }
+  private onAddButtonPress(item: ProductDto) {
+    console.log('I am pressed', item);
+    this.props.dispatch(addItemOnCart(item));
+  }
 
   private renderProduct({item}: any) {
     const buttonBlock =
       item.quantity === 0 ? (
         <View style={[styles.flexRow1, {justifyContent: 'flex-end'}]}>
-          <TouchableOpacity onPress={() => console.log('hello')}>
+          <TouchableOpacity
+            hitSlop={{top: 10, right: 10, bottom: 10, left: 10}}
+            onPress={() => this.onAddButtonPress(item)}>
             <Animated.View>
               <Icon
                 name="plus-circle"
@@ -35,7 +47,9 @@ class ProductList extends Component<LocalProps, any> {
         </View>
       ) : (
         <View style={styles.flexRow1}>
-          <TouchableOpacity onPress={() => console.log('hello')}>
+          <TouchableOpacity
+            hitSlop={{top: 10, right: 10, bottom: 10, left: 10}}
+            onPress={() => this.onAddButtonPress(item)}>
             <Animated.View>
               <Icon
                 name="minus-circle"
@@ -50,11 +64,13 @@ class ProductList extends Component<LocalProps, any> {
                 textStyle(Colors.standard, 20, '500'),
                 styles.textCenter,
               ]}>
-              {item.quantity}
+              {/* {item.quantity} */}0
             </Animated.Text>
           </Animated.View>
 
-          <TouchableOpacity onPress={() => console.log('hello')}>
+          <TouchableOpacity
+            hitSlop={{top: 10, right: 10, bottom: 10, left: 10}}
+            onPress={() => this.onAddButtonPress(item)}>
             <Animated.View>
               <Icon
                 name="plus-circle"
@@ -69,25 +85,25 @@ class ProductList extends Component<LocalProps, any> {
       <View style={styles.productContatiner}>
         <View style={styles.flex2}>
           <Image
-            source={{uri: item.imgUrl}}
-            style={{width: 70, height: 70}}
+            source={{uri: item.ImgUrl}}
+            style={{width: 65, height: 65}}
             PlaceholderContent={<ActivityIndicator />}
           />
         </View>
         <View style={styles.flex7}>
           <View>
             <Text style={[textStyle('#000', 18, '600'), styles.textLeft]}>
-              {item.name}
+              {item.Name}
             </Text>
             <Text style={[textStyle('#000', 15, '400'), styles.textLeft]}>
-              {item.unit}
+              {item.Unit}
             </Text>
           </View>
         </View>
         <View style={styles.flex3}>
           <View style={styles.flex1}>
             <Text style={[textStyle('#000', 22, '600'), styles.textRight]}>
-              {`৳ ${item.price}`}
+              {`৳ ${item.Price}`}
             </Text>
           </View>
           <View style={styles.flex1}>{buttonBlock}</View>
@@ -102,7 +118,9 @@ class ProductList extends Component<LocalProps, any> {
     //   outputRange: [-20, 0, 0, 1],
     // });
     return (
-      <TouchableOpacity onPress={() => console.log('hello')}>
+      <TouchableOpacity
+        onPress={() => console.log('hello')}
+        hitSlop={{top: 10, right: 10, bottom: 10, left: 10}}>
         <Animated.View style={styles.swipeableRemove}>
           <Icon name="trash" type="font-awesome-5" color={Colors.standard} />
         </Animated.View>
@@ -120,13 +138,14 @@ class ProductList extends Component<LocalProps, any> {
 
   private renderTouchable({item}: any) {
     return (
-      <TouchableOpacity
+      <RectButton
+        hitSlop={{top: 10, right: 10, bottom: 10, left: 10}}
         style={styles.flex1}
         onPress={() =>
           this.props.navigation.navigate('ProductDetails', {id: item.name})
         }>
         {this.renderProduct({item})}
-      </TouchableOpacity>
+      </RectButton>
     );
   }
   render() {
@@ -140,7 +159,6 @@ class ProductList extends Component<LocalProps, any> {
           ItemSeparatorComponent={() => {
             return verticalSpacer(5);
           }}
-          // renderItem={(item) => this.renderTouchable(item)}
           renderItem={(item) =>
             isSwipeable
               ? this.renderSwipeable(item)

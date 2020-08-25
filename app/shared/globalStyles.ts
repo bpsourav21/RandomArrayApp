@@ -20,12 +20,12 @@ export const styles = StyleSheet.create({
     backgroundColor: Colors.white,
   },
   headerContainer: {
-    backgroundColor: Colors.primary,
+    backgroundColor: Colors.theme,
     height: Platform.OS === 'android' ? 56 : 44,
     paddingTop: 0,
   },
   drawerContainerTop: {
-    backgroundColor: Colors.primary,
+    backgroundColor: Colors.theme,
     flex: 3,
     alignItems: 'center',
     justifyContent: 'center',
@@ -35,7 +35,7 @@ export const styles = StyleSheet.create({
   },
   drawerContainerBottom: {
     flex: 2,
-    backgroundColor: Colors.primary,
+    backgroundColor: Colors.theme,
     alignItems: 'center',
     justifyContent: 'center',
   },

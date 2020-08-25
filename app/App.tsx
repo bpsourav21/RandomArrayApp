@@ -35,7 +35,7 @@ class App extends Component<any, any> {
   render() {
     return (
       <Provider store={store}>
-        <StatusBar barStyle="light-content" backgroundColor={Colors.primary} />
+        <StatusBar barStyle="light-content" backgroundColor={Colors.theme} />
         <AppNavigator />
       </Provider>
     );

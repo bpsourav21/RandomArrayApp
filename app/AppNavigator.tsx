@@ -19,6 +19,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import ShoppingCart from './screens/ShoppingCart';
 import ProductDetails from './screens/ProductDetails';
 import Checkout from './screens/Checkout';
+import {Colors} from './shared/Colors';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator<ParamList>();
@@ -40,7 +41,7 @@ class AppNavigator extends Component<LocalProps, any> {
       <Drawer.Navigator
         initialRouteName="Home"
         drawerContentOptions={{
-          activeTintColor: '#0d0d0d',
+          activeTintColor: Colors.theme,
           itemStyle: {marginVertical: 0},
         }}
         drawerContent={(props) => <DrawerContent {...props} />}>
